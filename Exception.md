@@ -24,7 +24,10 @@
 # 예외 처리하기. try-catch문
 
 <aside>
-💡 try {
+
+```
+💡 
+try {
     예외를 처리하길 원하는 실행 코드;
 } catch (e1) {
     e1 예외가 발생할 경우에 실행될 코드;
@@ -35,6 +38,7 @@
 finally {
     예외 발생 여부와 상관없이 무조건 실행될 코드;
 }
+```
 
 </aside>
 
@@ -46,6 +50,8 @@ catch 블록과 finally 블록은 선택적인 옵션으로 반드시 사용할 
 따라서 사용할 수 있는 모든 적합한 try 구문은 다음과 같다.
 
 <aside>
+
+```
 💡 
 적합한 try 구문
 1. try / catch
@@ -53,6 +59,7 @@ catch 블록과 finally 블록은 선택적인 옵션으로 반드시 사용할 
 2. try / finally
 
 3. try / catch / ... / finally
+```
 
 </aside>
 
@@ -100,21 +107,22 @@ catch 블록과 finally 블록은 선택적인 옵션으로 반드시 사용할 
 따라서 여러 개의 catch 블록을 사용할 때는 Exception 클래스의 계층 관계에도 주의를 기울여야만 한다.
 
 <aside>
+
+```
 💡
+try{
 
-**try** {
+    System.out.write(list);
 
-**System.**out**.**write(list);
+} catch (Exception e) {
 
-} **catch** (**Exception** e) {
+    e.printStackTrace();
 
-e**.**printStackTrace();
+} catch (IOException e) {
 
-} **catch** (**IOException** e) {
-
-e**.**printStackTrace();
-
+    e.printStackTrace();
 }
+```
 
 </aside>
 
@@ -129,21 +137,24 @@ e**.**printStackTrace();
 따라서 IOException만을 따로 처리하고자 한다면, 다음 예제처럼 catch 블록의 순서를 변경해야 한다.
 
 <aside>
+
+```
 💡
 
-**try** {
+try {
 
-**System.**out**.**write(list);
+    System.out.write(list);
 
-} **catch** (**IOException** e) {
+} catch (IOException e) {
 
-e**.**printStackTrace();
+    e.printStackTrace();
 
-} **catch** (**Exception** e) {
+} catch (Exception e) {
 
-e**.**printStackTrace();
+    e.printStackTrace();
 
 }
+```
 
 </aside>
 
@@ -185,44 +196,46 @@ Throwable 타입과 이 클래스를 상속받은 서브 타입만이 자바 �
 따라서 더욱 안정성 있는 프로그램을 손쉽게 작성할 수 있도록 도와줄 수 있다.
 
 <aside>
+
+```
 💡 호출된 메소드에서 발생한 예외를 호출된 메소드에서 처리하는 예제
 
-**public** **class** Exception03 {
+public class Exception03 {
 
-**static** **void** **handlingException**() {
+static void handlingException() {
 
-**try** {
+try {
 
-**throw** **new** **Exception**();
+    throw new Exception();
 
-****    } **catch** (**Exception** e) {
+} catch (Exception e) {
 
-**System.**out**.**println("호출된 메소드에서 예외가 처리됨!");
+    System.out.println("호출된 메소드에서 예외가 처리됨!");
 
-****    }
-
-****}
-
-**public** **static** **void** **main**(**String**[] *args*) {
-
-**try** {
-
-****        handlingException();
-
-****    } **catch** (**Exception** e) {
-
-**System.**out**.**println("main() 메소드에서 예외가 처리됨!");
-
-****    }
-
-****}
+ }
 
 }
+
+public static void main(String[] args) {
+
+try {
+
+        handlingException();
+
+    } catch (Exception e) {
+
+        System.out.println("main() 메소드에서 예외가 처리됨!");
+
+    }
+
+}
+
+}
+```
 
 </aside>
 
 <aside>
-💡 결과
 
 ### 실행 결과
 
@@ -235,32 +248,36 @@ Throwable 타입과 이 클래스를 상속받은 서브 타입만이 자바 �
 또한, 이 메소드를 호출한 main() 메소드는 호출된 메소드에서 예외가 발생한 사실을 알 수 없다.
 
 <aside>
+
+```
 💡 throws 키워드를 사용하여 호출된 메소드에서 발생한 예외를 호출한 메소드로 넘기는 예제
 
-**public class** Exception04 {
+public class Exception04 {
 
-**static** **void** **handlingException**() **throws** **Exception** { **throw** **new** **Exception**(); }
+static void handlingException() throws Exception { 
+    throw new Exception(); 
+}
 
-**public** **static** **void** **main**(**String**[] *args*) {
+public static void main(String[] args) {
 
-**try** {
+try {
 
-****    handlingException();
+    handlingException();
 
-****} **catch** (**Exception** e) {
+} catch (Exception e) {
 
-**System.**out**.**println("main() 메소드에서 예외가 처리됨!");
+    System.out.println("main() 메소드에서 예외가 처리됨!");
 
-****}
+        }
 
-****}
+    }
 
 }
+```
 
 </aside>
 
 <aside>
-💡 결과
 
 ### 실행 결과
 
