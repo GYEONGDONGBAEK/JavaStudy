@@ -259,7 +259,8 @@ class Test {
 - 보기 1
 
 ```cpp
-// 매개변수만 다를 경우int add(int a, int b) {
+// 매개변수만 다를 경우
+int add(int a, int b) {
   return a + b;
 }
 int add(int x, int y) {
@@ -272,7 +273,8 @@ int add(int x, int y) {
 - 보기 2
 
 ```cpp
-// 반환 타입만 다를 경우int add(int a, int b) {
+// 반환 타입만 다를 경우
+int add(int a, int b) {
   return a + b;
 }
 long add(int a, int b) {
@@ -285,7 +287,8 @@ long add(int a, int b) {
 - 보기 3
 
 ```cpp
-// 매개변수 타입의 순서가 다른 경우long add(int a, long b) {
+// 매개변수 타입의 순서가 다른 경우
+long add(int a, long b) {
   return a + b;
 }
 long add(long a, int b) {
