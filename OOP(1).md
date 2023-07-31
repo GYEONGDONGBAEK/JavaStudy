@@ -46,6 +46,7 @@
 > 
 
 <aside>
+
 💡 클래스 -제품 설계도
 객체 - 제품
 
@@ -66,6 +67,8 @@
 -인스턴스의 생성과 사용
 
 <aside>
+
+```
 💡 class Tv {
   String color;
   boolean power;
@@ -85,6 +88,7 @@ class Tvtest {
     System.out.println("현재 채널은 " + t.channel + " 입니다");
   }
 }
+```
 
 </aside>
 
